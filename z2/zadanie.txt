@@ -1,0 +1,2 @@
+Zadanie 2. Mechanizm weryfikacji występowania drzewa w podanym grafie:
+Posiadając n węzłów o etykietach od 0 do n - 1 i listę nieskierowanych krawędzi (podane jako para węzłów), sprawdź czy tak podanych graf jest poprawnym drzewem.

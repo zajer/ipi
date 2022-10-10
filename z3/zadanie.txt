@@ -1,0 +1,2 @@
+Zadanie 3. Wykrywanie spamu za pomocą algorytmów uczenia maszynowego.
+Klasyczny problem klasyfikacji maili jako spam lub nie-spam. W załączonych materiałach dołączyłem plik spambase.zip (zawiera dane w formacie csv oraz opis atrybutów, specyfikację całej bazy). W pliku spambase.data każdy rekord to opis jednego maila za pomocą 57 atrybutów, a ostatnim 58 polem w rekordzie jest klasa (1-spam; 0-non-spam). Należy zbudować model klasyfikatora binarnego do klasyfikacji spam/nie-spam, oraz zbadać jego dokładność korzystając z metodyki ewaluacji 10-fold-cross-validation.
