@@ -1,0 +1,27 @@
+Co chcę zrobić?
+Znaleźć wszystkie kombinacje cyfr dające poprawny adres IP.
+Znaleźć wszystkie kombinacje cyfr dające liczby z przedziału 0-255.
+
+Jak chcę to zrobić?
+L0 - Liczba kombinacji cyfr z przedziału 0-9 dająca w wyniku liczby z przedziału 0-9.
+Mając do dyspozycji n cyfr z przedziału 0-9 takich kombinacji będzie n.
+L10 - Liczba kombinacji cyfr dająca w wyniku liczby z przedziału 10-99.
+Mając do dyspozycji n cyfr z przedziału 0-9 w tym n' cyfr z przedziału 1-9 takich kombinacji będzie n'*(n-1).
+L100/255 - Liczba kombinacji n cyfr od 0 do 9 w tym n' cyfr od 0 do 5, n'' cyfr od 0 do 4 i n1' jedynek i n2' dwójek, która daje w wyniku liczby od 100 do 255.
+Liczba takich kombinacji jest równa: n1*(n-1)*(n-2) + n2*(n''-1)*(n-2) + n2*(n'-n'')*(n'-2).
+
+Każdy oktet może należeć do jednego z powyższych typów, czyli T0,T10,T100/255.
+
+Ważne charakterystyki zbioru cyfr:
+1) liczba cyfr od 0 do 9;
+2) liczba cyfr od 1 do 9;
+3) liczba cyfr od 0 do 5;
+4) liczba cyfr od 1 do 2;
+5) liczba cyfr od 0 do 4.
+
+Jeżeli któraś z charakterystyk jest zerowa, a konstruowany typ oktetu jej wymaga to mogę od razu uznać, że aktualnie konstruowana kombinacja oktetów jest nie wykonalna.
+Przykładowo:
+Dla T0.0 jeżeli po konstrukcji pierwszego oktetu charakterystyka 1 jest równa zero to wiem, że taka kombinacja nie przejdzie dalej (jest niewykonalna).
+
+Można konstruować koljne oktety typami, czyli T0.0.0.0, T0.0.0.10, T0.0.0.100/255.
+
