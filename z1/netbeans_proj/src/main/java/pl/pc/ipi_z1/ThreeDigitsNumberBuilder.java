@@ -101,10 +101,16 @@ public class ThreeDigitsNumberBuilder {
                         digitsToUse.makeDigitsAvail(1); //zwalniam cyfrę reprezentującą 10^2 
                         alreadyFreed.set(3);
                     }
-
-                    var thirdDigit = digitsToUse.takeFirstTwoAvail();
+                    try{
+                        var thirdDigit = digitsToUse.takeFirstTwoAvail();
+                        currentThirdDigit=thirdDigit;
+                        result.append(thirdDigit);
+                    }
+                    catch (IllegalStateException e2stop){
+                        throw new IndexOutOfBoundsException("It's not possible to construct a number within 100-200 range");
+                    }
                     usedDigits++;
-                    currentThirdDigit=thirdDigit;
+                    //currentThirdDigit=thirdDigit;
 
                     var secondDigit = digitsToUse.takeFirstDigitSmallerThanFiveAvail();
                     usedDigits++;
@@ -114,14 +120,15 @@ public class ThreeDigitsNumberBuilder {
                     currentFirstDigit=firstDigit;
                     currentSecondDigit=secondDigit;
 
-                    result.append(thirdDigit);
+                    //result.append(thirdDigit);
                     result.append(secondDigit);
                     result.append(firstDigit);
                     return result;
                 }
                 catch (IllegalStateException e3){
                     digitsToUse.makeDigitsAvail(usedDigits);
-                    throw new IndexOutOfBoundsException("It's not possible to construct a number within 100-200 range");
+                    throw new IllegalStateException("It's not possible to construct a number within 100-200 range");
+                    //throw new IndexOutOfBoundsException("It's not possible to construct a number within 100-200 range");
                 }
             }
         }
@@ -164,8 +171,8 @@ public class ThreeDigitsNumberBuilder {
             }
             catch (IllegalStateException e2){
                 digitsToUse.makeDigitsAvail(usedDigits);
-                
-                throw new IndexOutOfBoundsException("It's not possible to construct a number within 200-249 range");
+                throw new IllegalStateException("It's not possible to construct a number within 200-249 range");
+                //throw new IndexOutOfBoundsException("It's not possible to construct a number within 200-249 range");
             }
         }
     }
@@ -178,7 +185,7 @@ public class ThreeDigitsNumberBuilder {
                 alreadyFreed.set(1);
             }
             
-            var firstDigit = digitsToUse.takeNextAvailDigit(currentFirstDigit);
+            var firstDigit = digitsToUse.takeNextDigitUpToFiveAvail(currentFirstDigit);
             currentFirstDigit=firstDigit;
             
             result.append(currentThirdDigit);
@@ -229,7 +236,7 @@ public class ThreeDigitsNumberBuilder {
             }
                 
         } 
-        catch (IndexOutOfBoundsException e1){
+        catch (IllegalStateException e1){
             try{
                 switch(continueFrom){
                     case 1:
@@ -239,7 +246,7 @@ public class ThreeDigitsNumberBuilder {
                         continueFrom = 3;
                 }       return createNextAvailableNumber25XCase(digitsToUse, alreadyFreed);
             }
-            catch (IndexOutOfBoundsException e2){
+            catch (IllegalStateException e2){
                 if (continueFrom == 2)
                     return createNextAvailableNumber25XCase(digitsToUse, alreadyFreed);
                 else

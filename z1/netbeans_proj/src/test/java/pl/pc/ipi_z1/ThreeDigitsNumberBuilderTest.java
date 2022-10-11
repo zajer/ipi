@@ -182,4 +182,40 @@ public class ThreeDigitsNumberBuilderTest {
         assertEquals(expectedResult, numBuilder.createNextAvailableNumber(basket).toString());
         assertEquals(expectedAvailableDigitsLeft, basket.numOfAvailDigits());
     }
+    @Test
+    public void createNextAvailableNumber_notEnoughDigits1() {
+        int[] availDigits = {2,1,0,0,0,0,0,0,0,0};
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        numBuilder.createFirstAvailableNumber(basket);
+        
+        assertThrows(
+                IndexOutOfBoundsException.class, 
+                () -> { numBuilder.createNextAvailableNumber(basket); }
+        );
+    }
+    @Test
+    public void createNextAvailableNumber_notEnoughDigits2() {
+        int[] availDigits = {0,0,1,0,1,0,0,0,0,1};
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        numBuilder.createFirstAvailableNumber(basket);
+        
+        assertThrows(
+                IndexOutOfBoundsException.class, 
+                () -> { numBuilder.createNextAvailableNumber(basket); }
+        );
+    }
+    @Test
+    public void createNextAvailableNumber_notEnoughDigits3() {
+        int[] availDigits = {0,0,1,0,0,2,1,0,0,0};
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        numBuilder.createFirstAvailableNumber(basket);
+        
+        assertThrows(
+                IndexOutOfBoundsException.class, 
+                () -> { numBuilder.createNextAvailableNumber(basket); }
+        );
+    }
 }
