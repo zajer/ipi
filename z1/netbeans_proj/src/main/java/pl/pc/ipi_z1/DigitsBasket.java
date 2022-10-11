@@ -65,6 +65,9 @@ public class DigitsBasket {
     public int takeFirstTwoAvail(){
         return takeFirstAvailDigit(2,2);
     }
+    public int takeFirstOneOrTwoAvail(){
+        return takeFirstAvailDigit(1,2);
+    }
     public int takeFirstFiveAvail(){
         return takeFirstAvailDigit(5,5);
     }
