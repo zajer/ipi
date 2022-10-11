@@ -25,5 +25,5 @@ Dla T0.0 jeżeli po konstrukcji pierwszego oktetu charakterystyka 1 jest równa 
 
 Można konstruować koljne oktety typami, czyli T0.0.0.0, T0.0.0.10, T0.0.0.100/255.
 
-Co jeżeli jest za dużo cyfr i niektóre kombinacje się powtarzają? Np. "111 111 111 111 1"(13 jedynek)
-
+?Co jeżeli jest za dużo cyfr i niektóre kombinacje się powtarzają? Np. "111 111 111 111 1"(13 jedynek)
+!Trzeba uważać na sposób konstrukcji kolejnych liczb będących oktetami. Zwykłe odkładanie na stos już wykorzystanych nie wystarczy.
