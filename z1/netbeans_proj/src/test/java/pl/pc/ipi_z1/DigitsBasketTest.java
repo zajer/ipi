@@ -9,13 +9,57 @@ import org.junit.jupiter.params.provider.CsvSource;
 public class DigitsBasketTest {
     
     @Test
-    public void takeFirstAvailDigit() {
-        int[] availDigits = {1};
+    public void takeFirstAvailDigit_OneAvailable() {
+        int[] availDigits = {0,1,0,0,0,0,0,0,0,0};
         int expectedResult = 1;
         DigitsBasket basket = new DigitsBasket(availDigits);
         assertEquals(expectedResult, basket.takeFirstAvailDigit());
     }
-    
+    @Test
+    public void takeFirstAvailDigit_OneAvailable2() {
+        int[] availDigits = {0,7,0,0,0,0,0,0,0,0};
+        int expectedResult = 1;
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        assertEquals(expectedResult, basket.takeFirstAvailDigit());
+    }
+    @Test
+    public void takeFirstAvailDigit_MultipleAvailable() {
+        int[] availDigits = {0,1,1,1,0,0,1,0,0,0};
+        int expectedResult = 1;
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        assertEquals(expectedResult, basket.takeFirstAvailDigit());
+    }
+    @Test
+    public void takeFirstAvailDigit_MultipleAvailable2() {
+        int[] availDigits = {0,7,3,2,0,0,5,0,0,0};
+        int expectedResult = 1;
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        assertEquals(expectedResult, basket.takeFirstAvailDigit());
+    }
+    @Test
+    public void takeFirstAvailDigit_NoAvailable() {
+        int[] availDigits = {0,0,0,0,0,0,0,0,0,0};
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        assertThrows(
+                IllegalStateException.class, 
+                () -> { basket.takeFirstAvailDigit(); }
+        );
+    }
+    @Test
+    public void takeFirstAvailDigit_NotEnoughAvailable() {
+        int[] availDigits = {0,0,0,0,0,0,3,0,0,0};
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        assertThrows(
+                IllegalStateException.class, 
+                () -> { 
+                    basket.takeFirstAvailDigit();
+                    basket.takeFirstAvailDigit();
+                    basket.takeFirstAvailDigit();
+                    basket.takeFirstAvailDigit();
+                }
+        );
+    }
+    /*
     @ParameterizedTest(name = "in1{0} in2{1} in3{2} out{3}")
     @CsvSource({
                     "1,    1,   1,  1",
@@ -29,5 +73,5 @@ public class DigitsBasketTest {
         DigitsBasket basket = new DigitsBasket(availDigits);
         
     }
-    
+    */
 }
