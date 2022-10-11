@@ -59,6 +59,13 @@ public class DigitsBasketTest {
                 }
         );
     }
+    @Test
+    public void takeNextAvailDigit() {
+        int[] availDigits = {0,1,1,0,0,0,0,0,0,0};
+        int expectedResult = 2;
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        assertEquals(expectedResult, basket.takeNextAvailDigit(1));
+    }
     /*
     @ParameterizedTest(name = "in1{0} in2{1} in3{2} out{3}")
     @CsvSource({

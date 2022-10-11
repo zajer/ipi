@@ -65,6 +65,29 @@ public class DigitsBasket {
     public int takeFirstTwoAvail(){
         return takeFirstAvailDigit(2,2);
     }
+    public int takeFirstFiveAvail(){
+        return takeFirstAvailDigit(5,5);
+    }
+    private int takeNextAvailDigit(int rangeFrom,int rangeTo, int greaterThan){
+        for(int digit=rangeFrom;digit<=rangeTo;digit++)
+            if(availDigits[digit] > 0 && digit > greaterThan){
+                takeDigit(digit);
+                return digit;
+            }
+        throw new IllegalStateException("No satisfying digits available!");
+    }
+    public int takeNextAvailDigit(int greaterThan){
+        return takeNextAvailDigit(0,9,greaterThan);
+    }
+    public int takeNextPositiveDigitAvail(int greaterThan){
+        return takeNextAvailDigit(1,9,greaterThan);
+    }
+    public int takeNextDigitSmallerThanFiveAvail(int greaterThan){
+        return takeNextAvailDigit(0,4,greaterThan);
+    }
+    public int takeNextDigitUpToFiveAvail(int greaterThan){
+        return takeNextAvailDigit(0,5,greaterThan);
+    }
     public void makeDigitsAvail(int numberOfDigits){
         for(int i=0;i<numberOfDigits;i++){
             var digit = usedDigits.pop();
