@@ -38,35 +38,34 @@ public class TwoDigitsNumberBuilder {
         
         if (currentFirstDigit == 9 && currentSecondDigit == 9)
             throw new IndexOutOfBoundsException(excpMessage);
-        else {
-            try {
-                digitsToUse.makeDigitsAvail(1); //zwalniam cyfrę reprezentującą 10^0
-                var firstDigit = digitsToUse.takeNextAvailDigit(currentFirstDigit);
+        
+        try {
+            digitsToUse.makeDigitsAvail(1); //zwalniam cyfrę reprezentującą 10^0
+            var firstDigit = digitsToUse.takeNextAvailDigit(currentFirstDigit);
+            currentFirstDigit=firstDigit;
+
+            result.append(currentSecondDigit);
+            result.append(firstDigit);
+            return result;
+        }
+        catch (IllegalStateException e1){
+            try{
+                digitsToUse.makeDigitsAvail(1); //zwalniam cyfrę reprezentującą 10^1 
+                var secondDigit = digitsToUse.takeNextPositiveDigitAvail(currentSecondDigit);
+                usedDigits++;
+
+                var firstDigit = digitsToUse.takeFirstAvailDigit();
+                usedDigits++;
                 currentFirstDigit=firstDigit;
-                
-                result.append(currentSecondDigit);
+                currentSecondDigit=secondDigit;
+
+                result.append(secondDigit);
                 result.append(firstDigit);
                 return result;
             }
-            catch (IllegalStateException e1){
-                try{
-                    digitsToUse.makeDigitsAvail(1); //zwalniam cyfrę reprezentującą 10^1 
-                    var secondDigit = digitsToUse.takeNextPositiveDigitAvail(currentSecondDigit);
-                    usedDigits++;
-                    
-                    var firstDigit = digitsToUse.takeFirstAvailDigit();
-                    usedDigits++;
-                    currentFirstDigit=firstDigit;
-                    currentSecondDigit=secondDigit;
-                    
-                    result.append(secondDigit);
-                    result.append(firstDigit);
-                    return result;
-                }
-                catch (IllegalStateException e2){
-                    digitsToUse.makeDigitsAvail(usedDigits);
-                    throw new IndexOutOfBoundsException("Not enough digits are available to create 10/99 type of number");
-                }
+            catch (IllegalStateException e2){
+                digitsToUse.makeDigitsAvail(usedDigits);
+                throw new IndexOutOfBoundsException("Not enough digits are available to create 10/99 type of number");
             }
         }
         
