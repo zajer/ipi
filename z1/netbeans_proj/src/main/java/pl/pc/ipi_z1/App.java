@@ -47,7 +47,7 @@ public class App {
     private static final String digitsInputMsg = "Wpisz ciąg cyfr:";
     private static final String printingResultInputMsg = 
             "Czy chcesz żeby wypisać wszystkie znalezione kombinacje?\n"
-            + "Wpisz 't' (tak) lub 'n'(nie):\n"
+            + "Wpisz 't' (tak) lub 'n'(nie, wypisz tylko ile kombinacji znaleziono):\n"
             + "(wpisanie czegoś innego lub enter spowoduje, że wybrana zostanie opcja 't')";
     private static final String exhaustiveSearchInputMsg =
             "Czy wszystkie wpisany cyfry muszą zostać wykorzystane przy szukaniu kombinacji?\n"
@@ -66,8 +66,8 @@ public class App {
     
     public static void main(String[] args) {
         DigitsBasket availableDigits;
-        boolean printing = false;
-        boolean exhaustiveSearch = false;
+        boolean printing;
+        boolean exhaustiveSearch;
         System.out.println(tutMsg);
         System.out.println(digitsInputMsg);
         Scanner my_scan = new Scanner(System.in);
@@ -102,6 +102,8 @@ public class App {
                 results.forEach(
                     result -> System.out.println('['+result.toString()+']')
                 );
+            else
+                System.out.println("Liczba znalezionych kombinacji="+results.size());
         }
         catch(Exception e){
             System.out.println(errorMsg);
