@@ -91,8 +91,10 @@ public class App {
             switch(exhaustiveSearchOption){
                 case "w":
                     exhaustiveSearch = true;
+                    break;
                 case "d":
                     exhaustiveSearch = false;
+                    break;
                 default :
                     exhaustiveSearch = true;
             }

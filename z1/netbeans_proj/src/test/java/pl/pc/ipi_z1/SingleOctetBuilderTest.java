@@ -104,6 +104,18 @@ public class SingleOctetBuilderTest {
         assertEquals(expectedNumberOfResults, result.size());
     }
     @Test
+    public void howtobasic_tresc2b() {
+        int[] availDigits = {0,5,0,0,0,0,0,0,0,0};
+        int expectedNumberOfResults = 5;
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        SingleOctetBuilder builder = new SingleOctetBuilder();
+        
+        var result = builder.createOctet(basket, 3, false);
+        if (shouldPrintResults)
+            printResults(result);
+        assertEquals(expectedNumberOfResults, result.size());
+    }
+    @Test
     public void howtobasic_tresc3() {
         int[] availDigits = {2,3,0,0,0,0,0,0,0,0};
         int expectedNumberOfResults = 24;
