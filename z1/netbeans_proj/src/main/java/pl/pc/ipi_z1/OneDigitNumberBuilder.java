@@ -26,9 +26,6 @@ public class OneDigitNumberBuilder implements NumberBuilder{
         StringBuffer result = new StringBuffer();
         String excpMessage = "There are no more numbers in this range to construct";
         
-        if (currentNumber == 9)
-            throw new IndexOutOfBoundsException(excpMessage);
-        
         try {
             digitsToUse.makeDigitsAvail(1); //zwalniam cyfrę reprezentującą 10^0
             currentNumber = digitsToUse.takeNextAvailDigit(currentNumber);
