@@ -1,0 +1,4 @@
+Dla nieskierowanego grafu można sprawdzić, czy jest drzewem przez przejście DFS-em, a na stępnie sprawdzenie, czy wszystkie wierzchołki zostały odwiedzone dokładnie raz.
+
+JGraphT ma wbudowany DFS i wczytywanie grafów z pliku CSV.
+
