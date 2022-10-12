@@ -12,7 +12,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResultNumber = Integer.toString(100);
         int expectedAvailableDigitsLeft = 1;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         
         assertEquals(expectedResultNumber, numBuilder.createFirstAvailableNumber(basket).toString());
         assertEquals(expectedAvailableDigitsLeft, basket.numOfAvailDigits());
@@ -23,7 +23,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResultNumber = Integer.toString(101);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         
         assertEquals(expectedResultNumber, numBuilder.createFirstAvailableNumber(basket).toString());
         assertEquals(expectedAvailableDigitsLeft, basket.numOfAvailDigits());
@@ -34,7 +34,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResultNumber = Integer.toString(200);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         
         assertEquals(expectedResultNumber, numBuilder.createFirstAvailableNumber(basket).toString());
         assertEquals(expectedAvailableDigitsLeft, basket.numOfAvailDigits());
@@ -45,7 +45,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResultNumber = Integer.toString(249);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         
         assertEquals(expectedResultNumber, numBuilder.createFirstAvailableNumber(basket).toString());
         assertEquals(expectedAvailableDigitsLeft, basket.numOfAvailDigits());
@@ -54,7 +54,7 @@ public class ThreeDigitsNumberBuilderTest {
     public void createFirstAvailableNumber_notEnoughDigits1() {
         int[] availDigits = {0,0,0,0,0,0,0,0,0,0};
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         
         assertThrows(
                 IndexOutOfBoundsException.class, 
@@ -65,7 +65,7 @@ public class ThreeDigitsNumberBuilderTest {
     public void createFirstAvailableNumber_notEnoughDigits2() {
         int[] availDigits = {0,0,0,0,0,0,0,0,0,2};
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         
         assertThrows(
                 IndexOutOfBoundsException.class, 
@@ -76,7 +76,7 @@ public class ThreeDigitsNumberBuilderTest {
     public void createFirstAvailableNumber_notEnoughDigits3() {
         int[] availDigits = {0,0,0,0,0,0,0,0,0,3};
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         
         assertThrows(
                 IndexOutOfBoundsException.class, 
@@ -89,7 +89,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResult = Integer.toString(101);
         int expectedAvailableDigitsLeft = 1;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertEquals(expectedResult, numBuilder.createNextAvailableNumber(basket).toString());
@@ -102,7 +102,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResult = Integer.toString(102);
         int expectedAvailableDigitsLeft = 1;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertEquals(expectedResult, numBuilder.createNextAvailableNumber(basket).toString());
@@ -115,7 +115,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResult = Integer.toString(121);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertEquals(expectedResult, numBuilder.createNextAvailableNumber(basket).toString());
@@ -127,7 +127,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResult = Integer.toString(120);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertEquals(expectedResult, numBuilder.createNextAvailableNumber(basket).toString());
@@ -139,7 +139,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResult = Integer.toString(243);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertEquals(expectedResult, numBuilder.createNextAvailableNumber(basket).toString());
@@ -151,7 +151,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResult = Integer.toString(254);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertEquals(expectedResult, numBuilder.createNextAvailableNumber(basket).toString());
@@ -163,7 +163,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResult = Integer.toString(212);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket); //122
         
         assertEquals(expectedResult, numBuilder.createNextAvailableNumber(basket).toString());
@@ -175,7 +175,7 @@ public class ThreeDigitsNumberBuilderTest {
         String expectedResult = Integer.toString(219);
         int expectedAvailableDigitsLeft = 0;
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket); //129
         numBuilder.createNextAvailableNumber(basket); //192
         
@@ -186,7 +186,7 @@ public class ThreeDigitsNumberBuilderTest {
     public void createNextAvailableNumber_notEnoughDigits1() {
         int[] availDigits = {2,1,0,0,0,0,0,0,0,0};
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertThrows(
@@ -198,7 +198,7 @@ public class ThreeDigitsNumberBuilderTest {
     public void createNextAvailableNumber_notEnoughDigits2() {
         int[] availDigits = {0,0,1,0,1,0,0,0,0,1};
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertThrows(
@@ -210,7 +210,7 @@ public class ThreeDigitsNumberBuilderTest {
     public void createNextAvailableNumber_notEnoughDigits3() {
         int[] availDigits = {0,0,1,0,0,2,1,0,0,0};
         DigitsBasket basket = new DigitsBasket(availDigits);
-        ThreeDigitsNumberBuilder numBuilder = new ThreeDigitsNumberBuilder();
+        ThreeDigitsNumberBuilderV2 numBuilder = new ThreeDigitsNumberBuilderV2();
         numBuilder.createFirstAvailableNumber(basket);
         
         assertThrows(
