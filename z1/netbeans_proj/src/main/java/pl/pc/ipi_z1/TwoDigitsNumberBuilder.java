@@ -4,7 +4,7 @@ package pl.pc.ipi_z1;
 import lombok.Getter;
 
 
-public class TwoDigitsNumberBuilder {
+public class TwoDigitsNumberBuilder implements NumberBuilder {
     @Getter private int currentFirstDigit =-1;
     @Getter private int currentSecondDigit = -1;
     public StringBuffer createFirstAvailableNumber(DigitsBasket digitsToUse){
