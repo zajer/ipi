@@ -115,4 +115,16 @@ public class SingleOctetBuilderTest {
             printResults(result);
         assertEquals(expectedNumberOfResults, result.size());
     }
+    @Test
+    public void howtobasic_ok6() {
+        int[] availDigits = {0,1,1,1,0,0,0,0,0,1};
+        int expectedNumberOfResults = 24;
+        DigitsBasket basket = new DigitsBasket(availDigits);
+        SingleOctetBuilder builder = new SingleOctetBuilder();
+        
+        var result = builder.createOctet(basket, 3, true);
+        if (shouldPrintResults)
+            printResults(result);
+        assertEquals(expectedNumberOfResults, result.size());
+    }
 }
