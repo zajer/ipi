@@ -1,0 +1,36 @@
+HOW TO BASIC
+
+k-fold cross validation
+https://machinelearningmastery.com/k-fold-cross-validation/
+W szczególności fragment:
+The general procedure is as follows:
+
+    Shuffle the dataset randomly.
+    Split the dataset into k groups
+    For each unique group:
+        Take the group as a hold out or test data set
+        Take the remaining groups as a training data set
+        Fit a model on the training set and evaluate it on the test set
+        Retain the evaluation score and discard the model
+    Summarize the skill of the model using the sample of model evaluation score
+
+Chyba idea polega na tym, że mając niewielki zbiór danych w zależności od doboru podzbioru uczącego różna będzie "jakość" klasyfikatora.
+
+Super prosty przykład konstrukcji klasyfikatora binarnego:
+https://www.w3schools.com/python/python_ml_decision_tree.asp
+
+K-F CV w pytongu:
+https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_validate.html#sklearn-model-selection-cross-validate
+- Parametr "cv" odpowiada liczbie podziałów "k".
+- Parametr "return_estimator=True" zwróci klasyfikatory.
+
+Mierzenie jakości wyników:
+https://www.mimuw.edu.pl/~wjaworski/SU/SU04_miary_jakosci.pdf
+
+Różne:
+Za mały rysunek przedstawiający drzewo decyzyjne?
+https://stackoverflow.com/questions/59447378/sklearn-plot-tree-plot-is-too-small/61138992#61138992
+CSV bez nagłówków?
+https://stackoverflow.com/questions/29287224/pandas-read-in-table-without-headers/29287549#29287549
+Liczba wierszy w pliku CSV?
+https://stackoverflow.com/questions/15943769/how-do-i-get-the-row-count-of-a-pandas-dataframe/15943975#15943975
