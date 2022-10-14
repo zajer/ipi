@@ -44,7 +44,14 @@ public class TreeEvaluatorTest {
             + "1,3\n"
             + "1,4\n"
             + "4,2\n"
-            + "4,6\n"
+            + "4,6\n",
+              
+              "a,b\n"
+            + "b,c\n"
+            + "c,d\n"
+            + "c,e\n"
+            + "e,g\n"
+            + "g,f\n"
         };
     }
     
@@ -65,7 +72,22 @@ public class TreeEvaluatorTest {
             + "3,4\n"
             + "4,5\n"
             + "5,6\n"
-            + "6,5\n"
+            + "6,5\n",
+              
+              "a,b\n"
+            + "a,c\n"
+            + "a,d\n"
+            + "b,d\n"
+            + "c,d\n"
+            + "d,e\n"
+            + "b,e\n",
+              
+              "1,2\n"
+            + "2,3\n"
+            + "2,4\n"
+            + "5,6\n"
+            + "6,7\n"
+            + "6,8\n"
         };
     }
     
